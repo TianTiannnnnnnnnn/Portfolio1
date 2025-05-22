@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Christian Francisco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a192f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            background-color: rgba(10, 25, 47, 0.9);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(100, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f97316;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        nav ul li a.active {
+            color: #f97316;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .hero-content {
+            width: 60%;
+        }
+        
+        .hello-text {
+            font-size: 18px;
+            color: #d1d5db;
+            margin-bottom: 10px;
+        }
+        
+        .name {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        
+        .title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: #00e5ff;
+        }
+        
+        .description {
+            color: #d1d5db;
+            margin-bottom: 30px;
+            max-width: 600px;
+            font-size: 16px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: #d1d5db;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #00e5ff;
+        }
+        
+        .profile-image {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-image img {
+            width: 400px;
+            height: 550px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            color: #f97316;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .about-container {
+            background-color: rgba(16, 40, 70, 0.5);
+            border-radius: 20px;
+            border: 1px solid #00e5ff;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+        
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #00e5ff;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background-color: rgba(16, 40, 70, 0.7);
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #00e5ff;
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -60px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -60px;
+        }
+        
+        .timeline-date {
+            color: #00e5ff;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-education {
+            margin-bottom: 10px;
+        }
+        
+        .timeline-school {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .timeline-address {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .skill-card {
+            width: 300px;
+            background: rgba(16, 40, 70, 0.7);
+            border-radius: 15px;
+            border: 1px solid #00e5ff;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .skill-icon {
+            font-size: 40px;
+            margin-right: 15px;
+            color: #00e5ff;
+        }
+        
+        .skill-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .skill-desc {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+        
+        .tech-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tech-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: rgba(16, 40, 70, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #00e5ff;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4), 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(100, 255, 255, 0.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(0, 229, 255, 0.2);
+            color: #00e5ff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #00e5ff;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background-color: rgba(16, 40, 70, 0.7);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #00e5ff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4), 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #00e5ff;
+        }
+
+        .info-content h3 {
+            color: #00e5ff;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .info-content p {
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+
+        .social-links-small {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .social-icon-small {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 229, 255, 0.2);
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icon-small:hover {
+            background-color: #00e5ff;
+            transform: translateY(-3px);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+        }
+
+        .contact-form-container {
+            flex: 2;
+            background-color: rgba(16, 40, 70, 0.7);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #00e5ff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .form-header {
+            color: #00e5ff;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-subheader {
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid rgba(100, 255, 255, 0.1);
+            background-color: rgba(0, 229, 255, 0.05);
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .form-input::placeholder {
+            color: rgba(209, 213, 219, 0.7);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00e5ff;
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-send {
+            display: inline-block;
+            background-color: #00e5ff;
+            color: #0a192f;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            float: right;
+        }
+
+        .btn-send:hover {
+            background-color: #00b8d4;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(100, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content, .profile-image {
+                width: 100%;
+            }
+            
+            .profile-image {
+                margin-top: 40px;
+            }
+            
+            .description {
+                margin: 0 auto 30px;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .timeline::after {
+                left: 40px;
+            }
+            
+            .timeline-item, .timeline-item:nth-child(odd) {
+                flex-direction: column-reverse;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                padding-left: 70px;
+                margin-bottom: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 30px;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .name {
+                font-size: 40px;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Portfolio.</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <p class="hello-text">Hello it's Me</p>
+                    <h1 class="name">Christian Francisco</h1>
+                    <p class="title">and I'm a <span class="highlight">UX UI Designer</span></p>
+                    <p class="description">I'm a UX/UI Designer with a passion for creating intuitive, engaging, well-user-researched digital experiences. I take a holistic view to each challenge, understanding users' needs and crafting interfaces that not only look great but also function seamlessly across devices. My user-centered design process is complemented by a strong technical knowledge and collaboration skills to create pixel-perfect designs that users love to use.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="profile-image">
+                    <img src="C:\Users\USER\Downloads\IMG_20250113_132518_165.jpg" alt="Christian Francisco">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About me</h2>
+            <div class="about-container">
+                <p>As a versatile and creative professional with a strong background in UI/UX design, marketing, and editorial content creation, I am known for crafting user experiences that not only look good but also function seamlessly. My expertise lies in conducting thorough research, creating effective wireframes, and using a unique blend of aesthetics and technical principles in every project.</p>
+                <br>
+                <p>As a UX/UI Designer, I believe in adding the perfect touches that enhance the user experience. My strength lies in my attention to detail and the ability to understand user needs from diverse perspectives. I use these skills to create designs that resonate with users and drive results.</p>
+                <br>
+                <p>My commitment to improving a user's life is at the core of understanding how systems can be designed. I believe in taking a systematic approach that bridges the gap between designers and developers, creating solutions that bring ideas to life.</p>
+                <br>
+                <p>In essence, my skills as a UX/UI Designer allow me to produce high-impact design solutions that engage, and ultimately succeed in achieving business goals. I understand how to leverage the capabilities of current technologies to create user-friendly, effective designs for modern digital experiences.</p>
+                <br>
+                <p>I thrive in collaborative environments where I can apply my expertise to create tools that build community and inspire continuous innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Educational Background</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022-2026</div>
+                        <div class="timeline-education">
+                            <p class="timeline-school">College</p>
+                            <p class="timeline-school">Global Reciprocal College</p>
+                            <p class="timeline-address">Address: 1400 Rizal Ave Ext, Grace Park East, Caloocan, Metro Manila</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019-2021</div>
+                        <div class="timeline-education">
+                            <p class="timeline-school">Senior High School</p>
+                            <p class="timeline-school">Obando Montessori inc.</p>
+                            <p class="timeline-address">Address: 283, Paliwas Rd, Obando, 3021 Bulacan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2015-2019</div>
+                        <div class="timeline-education">
+                            <p class="timeline-school">High School</p>
+                            <p class="timeline-school">Polo National High Schooll</p>
+                            <p class="timeline-address">Address: M. H. Del Pilar Street, Palasan, Valenzuela City</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2009-2015</div>
+                        <div class="timeline-education">
+                            <p class="timeline-school">Elementary</p>
+                            <p class="timeline-school">Pio Valenzuela Elementary School</p>
+                            <p class="timeline-address">Address: M. H. Del Pilar Street, Palasan, Valenzuela City</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-code"></i></div>
+                        <h3 class="skill-title">Web Development</h3>
+                    </div>
+                    <p class="skill-desc">Creating the part of a website that users interact with by translating the designs into code. This includes making sure everything looks good and works well across browsers.</p>
+                    <div class="tech-icons">
+                        <i class="fab fa-html5" title="HTML5"></i>
+                        <i class="fab fa-css3-alt" title="CSS3"></i>
+                        <i class="fab fa-js" title="JavaScript"></i>
+                        <i class="fab fa-react" title="React"></i>
+                        <i class="fab fa-angular" title="Angular"></i>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-pencil-alt"></i></div>
+                        <h3 class="skill-title">Basic Editing | Designing</h3>
+                    </div>
+                    <p class="skill-desc">In designing or manipulating visual or written content, I employ my skills in editing, compiling, and arranging elements to create a cohesive visual using design principles, tools, and materials.</p>
+                    <div class="tech-icons">
+                        <i class="fab fa-adobe" title="Adobe Suite"></i>
+                        <i class="fab fa-figma" title="Figma"></i>
+                        <i class="fas fa-paint-brush" title="Illustration"></i>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-file-word"></i></div>
+                        <h3 class="skill-title">Microsoft Office</h3>
+                    </div>
+                    <p class="skill-desc">Proficient in using Microsoft Office applications including Word, Excel, PowerPoint, and Outlook for document creation, data analysis, presentation design, and communication.</p>
+                    <div class="tech-icons">
+                        <i class="fab fa-microsoft" title="Microsoft Office"></i>
+                        <i class="fas fa-file-excel" title="Excel"></i>
+                        <i class="fas fa-file-powerpoint" title="PowerPoint"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="C:\Users\USER\Downloads\b4d5fcf8-f8a1-4438-9365-93f5c2912333.jpeg" alt="Personal Portfolio" class="project-img">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">Personal Portfolio</h3>
+                        <p class="project-desc">A responsive portfolio website showcasing my skills and work. Features a clean design with smooth animations.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo →</a>
+                            <a href="#" class="project-link">Source Code →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="C:\Users\USER\Downloads\9b65059f-1afd-4f1b-8601-d0064066b078.jpeg" alt="Diagnostic Landing Page" class="project-img">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">Diagnostic Landing Page</h3>
+                        <p class="project-desc">A modern landing page for a diagnostic service with appointment booking functionality.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo →</a>
+                            <a href="#" class="project-link">Source Code →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="C:\Users\USER\Downloads\999ee681-c70c-4bef-9a80-5250e97f3f51.jpeg" alt="Project Magazine" class="project-img">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">SCSS</span>
+                            <span class="tag">React.js</span>
+                        </div>
+                        <h3 class="project-title">Project Magazine</h3>
+                        <p class="project-desc">An interactive digital magazine with dynamic content loading and page transitions.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo →</a>
+                            <a href="#" class="project-link">Source Code →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <img src="C:\Users\USER\Downloads\4bf41eea-0216-4133-aefe-8dd888d03711.jpeg" alt="ABR Diagnostic System" class="project-img">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React.js</span>
+                            <span class="tag">Tailwind</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <h3 class="project-title">ABR Diagnostic System</h3>
+                        <p class="project-desc">A comprehensive dashboard for medical diagnostics with data visualization and patient management.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo →</a>
+                            <a href="#" class="project-link">Source Code →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Phone Number</h3>
+                            <p>+63 926-265-7265</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email Address</h3>
+                            <p>christianfrancisco040603@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Location</h3>
+                            <p>6-2 J Sebastian St. Balangkas Valenzuela City</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Social Media</h3>
+                            <div class="social-links-small">
+                                <a href="#" class="social-icon-small">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon-small">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon-small">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3 class="form-header">Direct Message Me</h3>
+                    <p class="form-subheader">Don't Hesitate to Contact Me. Also use this if you have any questions, comments and suggestions for the improvement of My Portfolio!</p>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="Type your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="Type your working email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your message</label>
+                            <textarea id="message" class="form-input" placeholder="Type here your message..." required rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn-send">Send message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2024 Christian Francisco. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add active class to navigation items on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would normally send the form data to a server
+            console.log({ name, email, message });
+            
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Project Card Animation
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        projectCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
